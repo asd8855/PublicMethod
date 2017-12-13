@@ -29,13 +29,16 @@
     }];
 }
 
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+
+/**
+ 在App内部加载App Store 展示信息，但不能直接跳转到评论编辑页面
+ 再加载处App Store 展示页面后，需要手动点击 评论-> 撰写评论
+ */
 - (IBAction)jump {
     //https://itunes.apple.com/cn/app/id1271598291?mt=8 校易收
     NSString *appId = @"1271598291";
@@ -54,9 +57,12 @@
             [self presentViewController:storeVC animated:YES completion:nil];
         }
     }];
-
 }
 
+
+/**
+ 可评论评分,无次数限制
+ */
 - (IBAction)jump2 {
     
     NSString *appStr = @"https://itunes.apple.com/cn/app/id1271598291?mt=8";
@@ -69,7 +75,26 @@
         // Fallback on earlier versions
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appStr]];
     }
-    
 }
+
+
+/**
+ 只能评分,不能编写评论
+ 有次数限制,一年只能使用三次
+ 使用次数超限后,需要跳转到appstore
+ */
+- (IBAction)jump3 {
+    if (@available(iOS 10.3, *)) {
+        if ([SKStoreReviewController respondsToSelector:@selector(requestReview)]) {
+            //防止键盘遮挡
+            [[UIApplication sharedApplication].keyWindow endEditing:YES];
+            [SKStoreReviewController requestReview];
+        }
+    } else {
+        // Fallback on earlier versions
+        [self jump2];
+    }
+}
+
 
 @end
