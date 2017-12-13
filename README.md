@@ -88,3 +88,45 @@
     return string;
     }
 
+#### 更改iOS状态栏的颜色
+    - (void)setStatusBarBackgroundColor:(UIColor *)color
+    {
+    UIView *statusBar = [[[UIApplication sharedApplication] valueForKey:@"statusBarWindow"] valueForKey:@"statusBar"];
+
+    if ([statusBar respondsToSelector:@selector(setBackgroundColor:)])
+    {
+    statusBar.backgroundColor = color;
+    }
+    }
+
+#### 判断view是不是指定视图的子视图
+    BOOL isView = [textView isDescendantOfView:self.view];
+
+#### 关于NSDateFormatter的格式
+    G: 公元时代，例如AD公元
+    yy: 年的后2位
+    yyyy: 完整年
+    MM: 月，显示为1-12
+    MMM: 月，显示为英文月份简写,如 Jan
+    MMMM: 月，显示为英文月份全称，如 Janualy
+    dd: 日，2位数表示，如02
+    d: 日，1-2位显示，如 2
+    EEE: 简写星期几，如Sun
+    EEEE: 全写星期几，如Sunday
+    aa: 上下午，AM/PM
+    H: 时，24小时制，0-23
+    K：时，12小时制，0-11
+    m: 分，1-2位
+    mm: 分，2位
+    s: 秒，1-2位
+    ss: 秒，2位
+    S: 毫秒
+
+#### 防止scrollView手势覆盖侧滑手势
+    [scrollView.panGestureRecognizerrequireGestureRecognizerToFail:self.navigationController.interactivePopGestureRecognizer];
+
+#### 修改textField的placeholder的字体颜色、大小
+    [self.textField setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
+    [self.textField setValue:[UIFont boldSystemFontOfSize:16] forKeyPath:@"_placeholderLabel.font"];
+
+
