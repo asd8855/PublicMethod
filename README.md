@@ -1,5 +1,5 @@
 # PublicMethod
-### 获取Assets.xcassets中的 `LaunchImage`图片
+#### 获取Assets.xcassets中的 `LaunchImage`图片
     CGSize viewSize = [UIScreen mainScreen].bounds.size;
     // 竖屏
     NSString *viewOrientation = @"Portrait";
@@ -16,7 +16,7 @@
     return launchImageName;
     }
 
-### 获取Assets.xcassets中的 `AppIcon`
+#### 获取Assets.xcassets中的 `AppIcon`
     + (UIImage *)getAppIcon {
 
     NSDictionary *infoPlist = [[NSBundle mainBundle] infoDictionary];
@@ -25,7 +25,7 @@
     return image;
     }
 
-### 判断是否是 iPhoneX
+#### 判断是否是 iPhoneX
     + (BOOL)xys_isIPhoneX {
     struct utsname systemInfo;
     uname(&systemInfo);
@@ -38,7 +38,7 @@
     return isIPhoneX;
     }
 
-### 汉字转拼音
+#### 汉字转拼音
     + (NSString *) chineseCharactersToPinyin:(NSString *)sourceString {
     NSMutableString *mutableString = [NSMutableString stringWithString:sourceString];
     CFStringTransform((CFMutableStringRef)mutableString, NULL, kCFStringTransformToLatin, false);
@@ -46,7 +46,7 @@
     return mutableString;
     }
 
-### 获取视频第一帧图片
+#### 获取视频第一帧图片
     + (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time {
 
     AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
@@ -67,3 +67,23 @@
 
     return thumbnailImage;
     }
+
+#### 金额格式化
+    + (NSString *)stringTwoDecimalPlaces:(NSString *)numString positivePrefix:(NSString *)positivePrefix {
+
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
+    NSNumber *number = [formatter numberFromString:numString];
+
+    //整数每三位逗号分开
+    formatter.numberStyle = kCFNumberFormatterDecimalStyle;
+    //小数点后保留两位
+    formatter.maximumFractionDigits = 2;
+    formatter.minimumFractionDigits = 2;
+    //数字前加￥
+    formatter.positivePrefix = positivePrefix;
+
+    NSString *string = [formatter stringFromNumber:number];
+
+    return string;
+    }
+
