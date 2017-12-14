@@ -99,6 +99,13 @@
     }
     }
 
+#### 修改状态栏字体颜色
+只能设置两种颜色，黑色和白色，系统默认黑色
+设置为白色方法：
+* 在Info.plist 中设置`Status bar style`,值为`UIStatusBarStyleLightContent`
+* 在Info.plist 中添加`View controller-based status bar appearance`,值为`NO`
+* 在Info.plist 中设置`Status bar is initially hidden`,值为`NO`
+
 #### 判断view是不是指定视图的子视图
     BOOL isView = [textView isDescendantOfView:self.view];
 
