@@ -144,14 +144,14 @@
         CGFloat top, left, bottom, right;  // specify amount to inset (positive) for each of the edges. values can be negative to 'outset'
     } UIEdgeInsets;
 
-###### 它有四个参数：`top``left``bottom``right`表示上左下右的偏移量，其含义为：
+###### 它有四个参数：`top` `left` `bottom` `right`表示上左下右的偏移量，其含义为：
         top: 为正数的时候，是往下偏移，为负数的时候往上偏移；
         left: 为正数的时候往右偏移，为负数的时候往左偏移；
         bottom: 为正数的时候往上偏移，为负数的时候往下偏移；
         right:为正数的时候往左偏移，为负数的时候往右偏移
         同向偏移为正，反向偏移为负。
 
-#### `nil``Nil``NULL``NSNull`的区别
+#### `nil` `Nil` `NULL` `NSNull`的区别
 * `nil`:指向一个对象的空指针，对objective c id 对象赋空值
 * `Nil`:指向一个类的空指针，表示对类进行赋空值
 * `NULL`:指向其他类型(如：基本类型、C类型)的空指针，用于对非对象指针赋空值
