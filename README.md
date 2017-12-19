@@ -136,4 +136,30 @@
     [self.textField setValue:[UIColor redColor] forKeyPath:@"_placeholderLabel.textColor"];
     [self.textField setValue:[UIFont boldSystemFontOfSize:16] forKeyPath:@"_placeholderLabel.font"];
 
+#### 调整UIButton的title和image
+    @property(nonatomic) UIEdgeInsets titleEdgeInsets; // default is UIEdgeInsetsZero
+    @property(nonatomic) UIEdgeInsets imageEdgeInsets; // default is UIEdgeInsetsZero
+
+     typedef struct UIEdgeInsets {
+        CGFloat top, left, bottom, right;  // specify amount to inset (positive) for each of the edges. values can be negative to 'outset'
+    } UIEdgeInsets;
+
+##### 它有四个参数：`top``left``bottom``right`表示上左下右的偏移量，其含义为：
+        top: 为正数的时候，是往下偏移，为负数的时候往上偏移；
+        left: 为正数的时候往右偏移，为负数的时候往左偏移；
+        bottom: 为正数的时候往上偏移，为负数的时候往下偏移；
+        right:为正数的时候往左偏移，为负数的时候往右偏移
+        同向偏移为正，反向偏移为负。
+
+
+
+
+
+
+
+
+
+
+
+
 

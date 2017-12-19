@@ -17,6 +17,46 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    CGFloat space = 5; //图片和文字的间距
+    NSString *titleString = [NSString stringWithFormat:@"我是测试我是测试"];
+    CGFloat titleWidth = [titleString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}].width;
+    UIImage *btnImage = [UIImage imageNamed:@"xys_home_books_icon"];
+    CGFloat imageWidth = btnImage.size.width;
+    
+    CGFloat imageHeight = btnImage.size.height;
+    CGFloat titleHeight = [titleString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]}].height;
+    
+    CGFloat btnWidth = 200; // 按钮的宽度
+    if (titleWidth > btnWidth - imageWidth - space) {
+        titleWidth = btnWidth - imageWidth - space;
+    }
+    
+    UIButton *testButton = [[UIButton alloc]initWithFrame:CGRectMake(10, 100, btnWidth, imageHeight + space + titleHeight)];
+    testButton.titleLabel.font = [UIFont systemFontOfSize:16];
+    [testButton setBackgroundColor:[UIColor greenColor]];
+    [testButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [testButton setTitle:titleString forState:UIControlStateNormal];
+    [testButton setImage:btnImage forState:UIControlStateNormal];
+    [self.view addSubview:testButton];
+    
+    //按钮本身默认的是： 图片在左，文字在右。并且文字和图片的边缘是UIEdgeInsetsZero
+    //top  left bottom right
+    /*
+        top： 为正数的时候，是往下偏移，为负数的时候往上偏移
+        left： 为正数的时候往右偏移，为负数的时候往左偏移
+        bottom：为正数的时候往上偏移，为负数的时候往下偏移
+        right：为正数的时候往左偏移，为负数的时候往右偏移
+     向相反的方面偏移为正数，相同的为负数
+     */
+    //文字在左，图片在右
+//    [testButton setTitleEdgeInsets:UIEdgeInsetsMake(0, -(imageWidth + space *0.5), 0, (imageWidth + space * 0.5))];
+//    [testButton setImageEdgeInsets:UIEdgeInsetsMake(0,(titleWidth + space * 0.5), 0, -(titleWidth + space * 0.5))];
+    
+
+//    //文字在上，图片在下
+    [testButton setTitleEdgeInsets:UIEdgeInsetsMake(-(titleHeight + space) * 0.5, -imageWidth * 0.5, (titleHeight + space) * 0.5,imageWidth * 0.5)];
+    [testButton setImageEdgeInsets:UIEdgeInsetsMake((imageHeight + space) * 0.5, titleWidth * 0.5, -(imageHeight + space) * 0.5, -titleWidth * 0.5)];
 }
 
 
