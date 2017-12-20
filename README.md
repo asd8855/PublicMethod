@@ -171,11 +171,11 @@
     使用imageNamed这个方法生成的UIImage对象，会在应用的bundle中寻找图片，如果找到则Cache到系统缓存中，作为内存的cache,而程序员是无法操作cache的，只能由系统自动处理。如果我们需要重复加载一张图片，那这无疑是一种很好的方式，因为系统能很快的从内存的cache找到这张图片。但是试想，如果加载很多大的图片的时候，内存消耗过大的时候，就会强制释放内存，即会遇到内存警告（memory warnings）。由于在iOS系统中释放图片的内存比较麻烦，所以容易产生内存泄漏。
 2. 非缓存加载方式 `initWithContentsOfFile:`
 相比较上面的imageNamed这个方法要写的代码多了几行，使用imageWithContentsOfFile的方式加载的图片，图片会被系统以数据的方式进行加载。返回的对象不会保存在缓存中，一旦对象销毁就会释放内存，所以一般不会因为加载图片的方式遇到内存问题。
-总结：
+###### 总结：
 何时使用imageNamed: 图片资源反复使用到，如按钮背景图片的背景颜色，这些图片要经常用到，而且占用内存少
 何时不能使用imageWithContentsOfFile: 图片资源较大，加载到内存后，比较耗费内存资源，图片一般只使用一次
 
-注意：
+###### 注意：
 Assets.xcassets 的图片处理：
 1. 在资源包中对应的是Assets.car(放在Asserts.xcassets的图片全部集成到了Assets.car中)
 2. 放到Assets.xcassets中的图片时无法获取到路径
