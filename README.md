@@ -160,7 +160,7 @@
 #### 苹果开发者账号区别
 ![Image](img/dev_account_1.png)
 
-#### pickerview iOS 9 bug
+#### UIDatePicker iOS 9 bug
 //不加下面两行代码 在 iOS 9 系统中间内容会被遮蔽
 
     [_ui_datePicker setDatePickerMode:UIDatePickerModeDateAndTime];
