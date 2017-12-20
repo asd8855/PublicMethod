@@ -1,6 +1,8 @@
 # PublicMethod
 #### [其他](README_OTHER.md)
 #### 获取Assets.xcassets中的 `LaunchImage`图片
+    + (NSString *)getLaunchImageName {
+
     CGSize viewSize = [UIScreen mainScreen].bounds.size;
     // 竖屏
     NSString *viewOrientation = @"Portrait";
