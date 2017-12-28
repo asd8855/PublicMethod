@@ -185,4 +185,13 @@ Assets.xcassets 的图片处理：
 4. 不能通过imageWithContentsOfFile：这种方式来加载图片
 5. 放在Assets.xcassets中的图片只能通过imageNamed:方式去加载
 
+#### atomic 和 nonatomic 之间的区别
+* atomic 系统自动生成的 getter/setter方法会进行加锁操作。 属性默认 atomic。
+    atomic只是对属性的 getter/setter 方法进行了加锁操作，这种安全仅仅是 set/get 的读写安全，并非真正意义上的线程安全，因为线程安全还有读写之外的其他操作(比如：如果当一个线程正在get或set时，又有另一个线程同时在进行release操作，可能会直接crash)
+
+* nonatomic 系统自动生成的getter/setter 方法不会进行加锁操作。
+    系统生成的getter/setter 方法没有加锁，线程不安全，但更快，当多个线程同时访问同一个属性，会出现无法预料的结果。
+
+
+
 
