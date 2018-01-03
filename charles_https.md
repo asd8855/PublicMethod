@@ -4,8 +4,7 @@
 
 2.  ### iPhone配置代理
 <!--![image](charles_img/2.jpeg)-->
-<img src="charles_img/2.jpeg" style="zoom:50%" />
-
+<img src="charles_img/2.jpeg" style="zoom:40%" />
 3.  ### 点击 SSL Proxying 选择 install Charles Root Ceriticate in on a Mobile Device oR Remote...
 
 ![image](charles_img/3.png)
