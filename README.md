@@ -192,6 +192,17 @@ Assets.xcassets 的图片处理：
 * nonatomic 系统自动生成的getter/setter 方法不会进行加锁操作。
     系统生成的getter/setter 方法没有加锁，线程不安全，但更快，当多个线程同时访问同一个属性，会出现无法预料的结果。
 
+#### 以 ` @autoreleasepool` 降低内存峰值
+在遍历处理一些大数组或者大字典的时候，可以使用自动释放池来降低内存峰值，例如：
+  `  NSArray *people = /*一个很大的数组*/
+    NSMutableArray *employeesArray = [NSMutableArray new];
+    for (NSStirng *name in people) {
+    @autoreleasepool {
+    MLEmployee *employee = [MLEmployee alloc] initWithName:name];
+    [employeesArray addObject:employee];
+    }
+    }
+`
 
 
 
