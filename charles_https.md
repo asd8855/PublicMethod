@@ -1,5 +1,5 @@
 ## 使用charles七步抓取https包
-1. ### 查看LocalIp
+1. ### 查看Local IP
 ![image](charles_img/1.png)
 
 2.  ### iPhone配置代理
@@ -29,3 +29,4 @@
 8. ### ok了
 ![image](charles_img/13.png)
 
+[Charles下载地址](https://www.waitsun.com/charles-4-1-4.html)
