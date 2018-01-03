@@ -1,9 +1,9 @@
 ## 使用charles七步抓取https包
 1. ### 查看Local IP
-![image](charles_img/1.png =200x300)
+![image](charles_img/1.png)
 
 2.  ### iPhone配置代理
-![image](charles_img/2.jpeg)
+<!--![image](charles_img/2.jpeg)-->
 <img src="charles_img/2.jpeg" style="zoom:50%" />
 
 3.  ### 点击 SSL Proxying 选择 install Charles Root Ceriticate in on a Mobile Device oR Remote...
